@@ -6,7 +6,7 @@
 /*   By: tchappui <tchappui@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:07:36 by ktrosset          #+#    #+#             */
-/*   Updated: 2022/09/26 16:29:20 by tchappui         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:10:22 by tchappui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ int main(int ac, char **av)
 	pars = parsing(ac, av);
 	std::cout << pars.port << std::endl << pars.ip << std::endl;
 	int socketServer = socket(AF_INET, SOCK_STREAM, 0);
+
+	if ( socketServer < 0 ) {
+    perror("Socket creation error!");
+    exit (EXIT_FAILURE);
+	}
+
 	struct sockaddr_in addrServer;
 
 	addrServer.sin_addr.s_addr = inet_addr(pars.ip.c_str());
