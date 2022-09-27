@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <fstream>
+#include <sstream>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <arpa/inet.h>
