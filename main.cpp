@@ -6,7 +6,7 @@
 /*   By: tchappui <tchappui@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:07:36 by ktrosset          #+#    #+#             */
-/*   Updated: 2022/09/27 14:20:49 by tchappui         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:10:22 by tchappui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,7 @@ int main(int ac, char **av)
 	socklen_t csize = sizeof(addrClient);
 	int socketClient = accept(socketServer, (struct sockaddr *)&addrClient, &csize);
 
-if ( connect( socketServer, (struct sockaddr *) &addrServer, sizeof( addrServer ) ) < 0 ) {
-    perror("Connect process error!");
-    exit (EXIT_FAILURE);
+if ( setsockopt(socketServer, SOL_SOCKET, SO_REUSEADDR, (const struct sockaddr *)&addrServer, sizeof (addrServer));
 }
 	while ( 1 ) 
 	{
